@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ResBall</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="continents">Continents</string>
+    <string name="countries">Countries</string>
+    <string name="settings">Settings</string>
+</resources>
