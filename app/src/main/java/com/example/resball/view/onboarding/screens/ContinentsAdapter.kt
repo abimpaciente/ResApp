@@ -1,11 +1,9 @@
 package com.example.resball.view.onboarding.screens
 
-import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
-import com.example.resball.common.Continents
+import com.example.resball.util.Continents
 import com.example.resball.databinding.ContinentAdapterBinding
 import com.squareup.picasso.Picasso
 

@@ -1,4 +1,4 @@
-package com.example.resball.common
+package com.example.resball.util
 
 enum class Continents(val valueName: String,val urlImg:String) {
     Africa("Africa","https://w7.pngwing.com/pngs/510/755/png-transparent-africa-map-graphy-africa-monochrome-world-black-thumbnail.png"),

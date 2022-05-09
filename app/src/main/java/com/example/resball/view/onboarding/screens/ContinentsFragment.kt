@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.resball.R
-import com.example.resball.common.Continents
+import com.example.resball.util.Continents
 import com.example.resball.databinding.FragmentContinentsBinding
 
 class ContinentsFragment : Fragment() {
