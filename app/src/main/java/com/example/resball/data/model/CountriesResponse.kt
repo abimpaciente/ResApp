@@ -1,4 +1,4 @@
-package com.example.resball.model
+package com.example.resball.data.model
 
 
 import com.squareup.moshi.Json
@@ -9,5 +9,5 @@ data class CountriesResponse(
     @Json(name = "query")
     val query: Query?,
     @Json(name = "results")
-    val results: List<Result>?
+    val results: List<CountryModel>?
 )

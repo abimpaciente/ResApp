@@ -1,4 +1,4 @@
-package com.example.resball.model
+package com.example.resball.data.model
 
 
 import com.squareup.moshi.Json
