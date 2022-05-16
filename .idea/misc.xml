@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.153125" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2055" />
         <entry key="app/src/main/res/drawable/ic_baseline_favorite_24.xml" value="0.2625" />
         <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.2625" />
@@ -10,8 +11,9 @@
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2055" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/continent_adapter.xml" value="0.19791666666666666" />
+        <entry key="app/src/main/res/layout/country_adapter.xml" value="0.2776268115942029" />
         <entry key="app/src/main/res/layout/fragment_continents.xml" value="0.2959945678710938" />
-        <entry key="app/src/main/res/layout/fragment_countries.xml" value="0.2776268115942029" />
+        <entry key="app/src/main/res/layout/fragment_countries.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19891236309513383" />
         <entry key="app/src/main/res/layout/fragment_leagues.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.2776268115942029" />

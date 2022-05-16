@@ -8,6 +8,6 @@ import com.squareup.moshi.JsonClass
 data class CountriesResponse(
     @Json(name = "query")
     val query: Query?,
-    @Json(name = "results")
-    val results: List<Result>?
+    @Json(name = "data")
+    val data: List<Result>?
 )
