@@ -15,9 +15,4 @@ interface RequestApi {
         @Query(PARAM_API_KEY) apikey: String = API_KEY,
     ): Response<CountriesResponse>
 
-    @GET(END_POINT_COUNTRIES)
-    suspend fun getCountriesByContinent(
-        @Query(PARAM_CONTINENT) continent: String,
-        @Query(PARAM_API_KEY) apikey: String = API_KEY,
-    ): Response<CountriesResponse>
 }

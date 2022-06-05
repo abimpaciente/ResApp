@@ -1,4 +1,4 @@
-package com.example.resball.view.onboarding
+package com.example.resball.view.boarding
 
 import android.content.Context
 import android.os.Bundle
@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.resball.databinding.FragmentViewPagerBinding
-import com.example.resball.view.onboarding.screens.ContinentsFragment
-import com.example.resball.view.onboarding.screens.CountriesFragment
+import com.example.resball.view.boarding.screens.ContinentsFragment
+import com.example.resball.view.boarding.screens.CountriesFragment
 
 
 class ViewPagerFragment : Fragment() {
@@ -23,9 +23,9 @@ class ViewPagerFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             ContinentsFragment(),
             CountriesFragment()
         )

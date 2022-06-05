@@ -6,8 +6,6 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class CountriesResponse(
-    @Json(name = "query")
-    val query: Query?,
     @Json(name = "data")
-    val data: List<Result>?
+    val data: List<Country>?
 )

@@ -1,4 +1,4 @@
-package com.example.resball.view.onboarding
+package com.example.resball.view.boarding
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

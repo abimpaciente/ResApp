@@ -8,7 +8,5 @@ class Repository {
     suspend fun getCountries(): Response<CountriesResponse> {
         return RetrofitInstance.api.getCountries()
     }
-    suspend fun getCountriesByContinent(continent: String): Response<CountriesResponse> {
-        return RetrofitInstance.api.getCountriesByContinent(continent)
-    }
+
 }

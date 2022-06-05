@@ -5,4 +5,11 @@
     <string name="continents">Continents</string>
     <string name="countries">Countries</string>
     <string name="settings">Settings</string>
+    <string name="select_your_continent">Select Your Continent</string>
+    <string name="select_your_country">Select Your Country</string>
+    <string name="splash">Splash</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
+    <string name="todo">TODO</string>
 </resources>

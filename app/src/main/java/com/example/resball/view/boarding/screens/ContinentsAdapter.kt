@@ -1,4 +1,4 @@
-package com.example.resball.view.onboarding.screens
+package com.example.resball.view.boarding.screens
 
 import android.graphics.Color
 import android.view.LayoutInflater

@@ -1,15 +1,12 @@
 package com.example.resball.view
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.resball.R
 import com.example.resball.databinding.FragmentHomeBinding
-import com.example.resball.view.onboarding.SplashFragment
-import com.example.resball.view.onboarding.screens.ContinentsFragment
 import com.example.resball.view.sports.LeaguesFragment
 import com.example.resball.view.sports.SettingsFragment
 import com.example.resball.view.sports.TeamsFragment
@@ -25,7 +22,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         setupTabs()
 
@@ -35,13 +32,13 @@ class HomeFragment : Fragment() {
 
     private fun setupTabs() {
 
-        val fragmentList = arrayListOf<Fragment>(
+        val fragmentList = arrayListOf(
             TeamsFragment(),
             LeaguesFragment(),
-            SettingsFragment()
+            SettingsFragment(),
         )
 
-        val titlesList = arrayListOf<String>(
+        val titlesList = arrayListOf(
             "Teams",
             "Leagues",
             "Settings"
@@ -64,7 +61,6 @@ class HomeFragment : Fragment() {
         binding.tabsSport.getTabAt(0)?.setIcon(R.drawable.ic_baseline_home_24)
         binding.tabsSport.getTabAt(1)?.setIcon(R.drawable.ic_baseline_favorite_24)
         binding.tabsSport.getTabAt(2)?.setIcon(R.drawable.ic_baseline_settings_24)
-
 
 
     }

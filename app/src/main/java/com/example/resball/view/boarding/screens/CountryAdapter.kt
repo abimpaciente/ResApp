@@ -1,25 +1,23 @@
-package com.example.resball.view.onboarding.screens
+package com.example.resball.view.boarding.screens
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resball.common.Constants.Companion.BASE_URL_FLAG
 import com.example.resball.databinding.CountryAdapterBinding
-import com.example.resball.model.Result
+import com.example.resball.model.Country
 import com.squareup.picasso.Picasso
 
 class CountryAdapter(
-    private val dataSet: List<Result>,
-    private val selectedCountry: String,
-    private val onClick: (Result) -> Unit
+    private val dataSet: List<Country>,
+    private val onClick: (Country) -> Unit
 ) : RecyclerView.Adapter<CountryAdapter.CountryHolder>() {
 
     class CountryHolder(private val binding: CountryAdapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun onBind(
-            countries: Result,
-            onClick: (Result) -> Unit
+            countries: Country,
+            onClick: (Country) -> Unit
         ) {
             val country = countries.name
             val urlImage = BASE_URL_FLAG + countries.countryCode
@@ -47,11 +45,6 @@ class CountryAdapter(
     override fun onBindViewHolder(holder: CountryHolder, position: Int) {
         holder.onBind(dataSet[position], onClick)
 
-//        if (selectedItem != dataSet[position].valueName) {
-//            holder.itemView.setBackgroundColor(Color.WHITE)
-//        } else {
-//            holder.itemView.setBackgroundColor(Color.BLUE)
-//        }
     }
 
     override fun getItemCount(): Int {

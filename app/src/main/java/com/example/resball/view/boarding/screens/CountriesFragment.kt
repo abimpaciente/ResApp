@@ -1,4 +1,4 @@
-package com.example.resball.view.onboarding.screens
+package com.example.resball.view.boarding.screens
 
 import android.content.ContentValues.TAG
 import android.content.Context
@@ -8,17 +8,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.resball.R
 import com.example.resball.databinding.FragmentCountriesBinding
-import com.example.resball.model.Result
+import com.example.resball.model.Country
 import com.example.resball.repository.Repository
 import com.example.resball.viewModel.CountriesViewModel
 import com.example.resball.viewModel.CountriesViewModelFactory
-import androidx.navigation.fragment.findNavController
+import com.google.gson.Gson
+
 
 class CountriesFragment : Fragment() {
 
@@ -29,7 +32,6 @@ class CountriesFragment : Fragment() {
     private lateinit var selectedContinent: String
     private lateinit var selectedCountry: String
 
-    //    private lateinit var recyclerCountries: RecyclerView
     private lateinit var adapter: CountryAdapter
 
     private lateinit var viewModel: CountriesViewModel
@@ -37,26 +39,38 @@ class CountriesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         initViews()
 
+        observers()
 
-        viewModel.getCountries()
-        viewModel.myResponse.observe(viewLifecycleOwner, Observer { response ->
+        return binding.root
+    }
+
+    private fun observers() {
+
+        viewModel.myResponse.observe(viewLifecycleOwner) { response ->
             if (response.isSuccessful) {
                 val result = response.body()?.data
                 result?.filter { x ->
                     x.continent == selectedContinent
                 }?.let { updateAdapter(it) }
+            } else {
+                updateAdapter(emptyList())
+                Toast.makeText(this.context, "Error ${response.code()}", Toast.LENGTH_SHORT).show()
             }
-        })
-
-        viewModel.listCountries.observe(viewLifecycleOwner) {
-            updateAdapter(it)
         }
 
-        return binding.root
+        viewModel.isLoading.observe(viewLifecycleOwner) {
+            binding.progressBarCountry.isVisible = it
+        }
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.getCountries()
     }
 
     private fun initViews() {
@@ -89,26 +103,33 @@ class CountriesFragment : Fragment() {
         selectedContinent = data.toString()
     }
 
-    private fun updateAdapter(results: List<Result>) {
+    private fun updateAdapter(countries: List<Country>) {
 
 
         Log.d(TAG, "updateAdapter: $selectedContinent")
-        adapter = CountryAdapter(results, selectedCountry) {
+        adapter = CountryAdapter(countries) {
             onClick(it)
         }
 
-        Log.d(TAG, "updateAdapter: $results")
+        Log.d(TAG, "updateAdapter: $countries")
 
         binding.countriesRecyclerview.adapter = adapter
 
     }
 
-    private fun onClick(country: Result) {
+    private fun onClick(country: Country) {
+        if (country.countryCode == null) {
+            return
+        }
+
+
+
         selectedCountry = country.name.toString()
         val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
         val editor = sharedPref.edit()
-        editor.putString("Country", selectedCountry)
-        Log.d("Country", "onClick: $selectedCountry")
+        val gson = Gson()
+        val json = gson.toJson(country)
+        editor.putString("Country", json)
         editor.apply()
 
         onBoardingFinished()

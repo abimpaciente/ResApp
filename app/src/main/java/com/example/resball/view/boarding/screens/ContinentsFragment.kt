@@ -1,10 +1,8 @@
-package com.example.resball.view.onboarding.screens
+package com.example.resball.view.boarding.screens
 
-import android.content.Context
 import android.content.Context.MODE_PRIVATE
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,8 +14,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.resball.R
 import com.example.resball.common.Continents
 import com.example.resball.databinding.FragmentContinentsBinding
-import com.example.resball.repository.Repository
-import kotlin.math.log
 
 
 class ContinentsFragment : Fragment() {
@@ -32,7 +28,7 @@ class ContinentsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         initViews()
 
@@ -46,7 +42,7 @@ class ContinentsFragment : Fragment() {
 
 //        recyclerContinents.adapter?.bindViewHolder(viewHolder, 5)
         selectedContinent = continent.valueName
-        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", MODE_PRIVATE)
         val editor = sharedPref.edit()
         editor.putString("Continent", selectedContinent)
         editor.apply()
@@ -63,7 +59,6 @@ class ContinentsFragment : Fragment() {
 
 
     private fun initViews() {
-
 
         recyclerContinents = binding.continentsRecyclerview
 
